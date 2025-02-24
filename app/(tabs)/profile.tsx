@@ -130,6 +130,15 @@ const ProfilePage = () => {
               key={post.id}
               source={{ uri: post.image }}
               style={styles.picture}
+              resizeMode="cover"
+            />
+          ))}
+          {posts.map((post) => (
+            <Image
+              key={post.id}
+              source={{ uri: post.image }}
+              style={styles.picture}
+              resizeMode="cover"
             />
           ))}
         </View>
@@ -140,6 +149,7 @@ const ProfilePage = () => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#fff",
     flex: 1,
     alignItems: "flex-start",
     justifyContent: "center",
@@ -164,12 +174,6 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 20,
-  },
-  uploadButton: {
-    flex: 1,
-    alignItems: "flex-end",
-    justifyContent: "center",
-    marginRight: 5,
   },
   headerIcons: {
     width: 28,
@@ -240,14 +244,20 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   gallery: {
+    display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 1,
+    justifyContent: "space-between",
+    width: Dimensions.get("window").width,
+    paddingHorizontal: 10,
+    marginVertical: 10,
   },
 
   picture: {
-    width: 136,
-    height: 180,
+    width: (Dimensions.get("window").width - 30) / 3,
+    height: (Dimensions.get("window").width - 30) / 3,
+    marginBottom: 10,
+    borderRadius: 5,
   },
   navBar: {
     height: 80,
