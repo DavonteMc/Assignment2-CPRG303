@@ -1,139 +1,151 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Dimensions,
-  Image,
-} from "react-native";
+import { View, Text, StyleSheet, Pressable, Image } from "react-native";
 import { useRouter } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
-import BackButton from "@/components/BackButton";
 
 const ProfilePage = () => {
   const router = useRouter();
 
-  const posts = [
-    {
-      id: 1,
-      image: "https://picsum.photos/id/1/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 2,
-      image: "https://picsum.photos/id/3/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 3,
-      image: "https://picsum.photos/id/8/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 4,
-      image: "https://picsum.photos/id/5/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 5,
-      image: "https://picsum.photos/id/33/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 6,
-      image: "https://picsum.photos/id/44/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 7,
-      image: "https://picsum.photos/id/29/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 8,
-      image: "https://picsum.photos/id/28/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 9,
-      image: "https://picsum.photos/id/25/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 10,
-      image: "https://picsum.photos/id/22/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 11,
-      image: "https://picsum.photos/id/34/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-    {
-      id: 12,
-      image: "https://picsum.photos/id/55/200/300",
-      caption: "Enjoying a beautiful day!",
-    },
-  ];
-
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <View style={styles.header}>
-          <BackButton onPress={() => router.back()} />
-          <View style={styles.headerText}>
-            <Text style={styles.title}>Group Profile</Text>
-            <Text>ootd_everyday</Text>
-          </View>
-        </View>
-
-        <View style={styles.profileHeader}>
-          <View style={styles.profilePhotoWhole}>
-            <Image
-              source={{ uri: "https://picsum.photos/200" }}
-              style={styles.profilePhoto}
-            />
-          </View>
-          <View style={styles.profileMetrics}>
-            <View style={styles.metricText}>
-              <Text style={styles.metricTitle}>53</Text>
-              <Text style={styles.metricSubtitle}>Posts</Text>
-            </View>
-            <View style={styles.metricText}>
-              <Text style={styles.metricTitle}>12</Text>
-              <Text style={styles.metricSubtitle}>Members</Text>
-            </View>
-            <View style={styles.metricText}>
-              <Text style={styles.metricTitle}>1</Text>
-              <Text style={styles.metricSubtitle}>Admins</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.profileBody}>
-          <Text style={styles.descriptionTitle}>OOTD Everyday</Text>
-          <Text>Fit Check!</Text>
-          <Text>You know we'll hype you up.</Text>
-        </View>
-        <View style={styles.dropdown}>
-          <Text style={styles.dropdownText}>Member</Text>
+      <View style={styles.header}>
+        <Pressable
+          style={styles.backButton}
+          onPress={() => router.back()} // Using router.back() to go back
+        >
           <Image
-            style={styles.dropdownButton}
-            source={require("../../assets/images/icons8-down-50.png")}
+            style={styles.headerIcons}
+            source={require("../../assets/images/icons8-left-50.png")}
+          />
+        </Pressable>
+        <View style={styles.headerText}>
+          <Text style={styles.title}>Group Profile</Text>
+          <Text>ootd_everyday</Text>
+        </View>
+      </View>
+
+      <View style={styles.profileHeader}>
+        <View style={styles.profilePhotoWhole}>
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.profilePhoto}
           />
         </View>
-
-        <View style={styles.gallery}>
-          {posts.map((post) => (
-            <Image
-              key={post.id}
-              source={{ uri: post.image }}
-              style={styles.picture}
-            />
-          ))}
+        <View style={styles.profileMetrics}>
+          <View style={styles.metricText}>
+            <Text style={styles.metricTitle}>53</Text>
+            <Text style={styles.metricSubtitle}>Posts</Text>
+          </View>
+          <View style={styles.metricText}>
+            <Text style={styles.metricTitle}>12</Text>
+            <Text style={styles.metricSubtitle}>Members</Text>
+          </View>
+          <View style={styles.metricText}>
+            <Text style={styles.metricTitle}>1</Text>
+            <Text style={styles.metricSubtitle}>Admins</Text>
+          </View>
         </View>
-      </ScrollView>
+      </View>
+
+      <View style={styles.profileBody}>
+        <Text style={styles.descriptionTitle}>OOTD Everyday</Text>
+        <Text>Fit Check!</Text>
+        <Text>You know we'll hype you up.</Text>
+      </View>
+      <View style={styles.dropdown}>
+        <Text style={styles.dropdownText}>Member</Text>
+        <Image
+          style={styles.dropdownButton}
+          source={require("../../assets/images/icons8-down-50.png")}
+        />
+      </View>
+
+      <View style={styles.gallery}>
+        <View style={styles.pictures}>
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.picture}
+          />
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.picture}
+          />
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.picture}
+          />
+        </View>
+        <View style={styles.pictures}>
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.picture}
+          />
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.picture}
+          />
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.picture}
+          />
+        </View>
+        <View style={styles.pictures}>
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.picture}
+          />
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.picture}
+          />
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={styles.picture}
+          />
+        </View>
+        <View style={styles.pictures}>
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={{ width: 136, height: 55 }}
+          />
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={{ width: 136, height: 55 }}
+          />
+          <Image
+            source={{ uri: "https://picsum.photos/200" }}
+            style={{ width: 136, height: 55 }}
+          />
+        </View>
+      </View>
+
+      {/* Bottom Navigation Bar */}
+      <View style={styles.navBar}>
+        <Pressable onPress={() => router.back()}>
+          <AntDesign
+            name="home"
+            size={30}
+            color="black"
+            style={styles.navIcon}
+          />
+        </Pressable>
+        <Pressable onPress={() => router.push("/explore")}>
+          <AntDesign
+            name="hearto"
+            size={30}
+            color="black"
+            style={styles.navIcon}
+          />
+        </Pressable>
+        <Pressable onPress={() => router.push("/profile")}>
+          <AntDesign
+            name="user"
+            size={30}
+            color="black"
+            style={styles.navIcon}
+          />
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -154,6 +166,11 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 10,
     marginBottom: 10,
+  },
+  backButton: {
+    flex: 1,
+    alignItems: "flex-start",
+    justifyContent: "center",
   },
   headerText: {
     flex: 2,
@@ -240,14 +257,19 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   gallery: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 1,
+    width: "100%",
+    justifyContent: "center",
+    marginVertical: 1,
   },
-
+  pictures: {
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: 1,
+    marginTop: 1,
+  },
   picture: {
     width: 136,
-    height: 180,
+    height: 136,
   },
   navBar: {
     height: 80,
