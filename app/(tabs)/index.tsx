@@ -167,6 +167,29 @@ const App = () => {
           </View>
         ))}
       </ScrollView>
+
+      {/* Bottom Navigation Bar */}
+      <View style={styles.navBar}>
+        <AntDesign name="home" size={30} color="black" style={styles.navIcon} />
+
+        <Pressable onPress={() => router.push("/explore")}>
+          <AntDesign
+            name="hearto"
+            size={30}
+            color="black"
+            style={styles.navIcon}
+          />
+        </Pressable>
+
+        <Pressable onPress={() => router.push("/profile")}>
+          <AntDesign
+            name="user"
+            size={30}
+            color="black"
+            style={styles.navIcon}
+          />
+        </Pressable>
+      </View>
     </View>
   );
 };

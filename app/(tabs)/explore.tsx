@@ -12,7 +12,6 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import BackButton from "@/components/BackButton";
 
 const { width } = Dimensions.get("window");
 const numColumns = 3;
@@ -29,7 +28,15 @@ const ExploreScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <BackButton onPress={() => router.back()} />
+        <Pressable
+          style={styles.backButton}
+          onPress={() => router.back()} // Using router.back() to go bac
+        >
+          <Image
+            style={styles.headerIcons}
+            source={require("../../assets/images/icons8-left-50.png")}
+          />
+        </Pressable>
       </View>
       {/* Search Bar */}
       <View style={styles.searchBar}>
@@ -52,6 +59,33 @@ const ExploreScreen = () => {
           ))}
         </View>
       </ScrollView>
+      {/* Bottom Navigation Bar */}
+      <View style={styles.navBar}>
+        <Pressable onPress={() => router.back()}>
+          <AntDesign
+            name="home"
+            size={30}
+            color="black"
+            style={styles.navIcon}
+          />
+        </Pressable>
+        <Pressable onPress={() => router.push("/explore")}>
+          <AntDesign
+            name="hearto"
+            size={30}
+            color="black"
+            style={styles.navIcon}
+          />
+        </Pressable>
+        <Pressable onPress={() => router.push("/profile")}>
+          <AntDesign
+            name="user"
+            size={30}
+            color="black"
+            style={styles.navIcon}
+          />
+        </Pressable>
+      </View>
     </View>
   );
 };
