@@ -247,17 +247,15 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
+    justifyContent: "center",
+    gap: 2,
     width: Dimensions.get("window").width,
-    paddingHorizontal: 10,
-    marginVertical: 10,
+    marginVertical: 5,
   },
 
   picture: {
-    width: (Dimensions.get("window").width - 30) / 3,
-    height: (Dimensions.get("window").width - 30) / 3,
-    marginBottom: 10,
-    borderRadius: 5,
+    width: (Dimensions.get("window").width - 9) / 3,
+    height: (Dimensions.get("window").width - 9) / 3,
   },
   navBar: {
     height: 80,
