@@ -122,56 +122,61 @@ const App = () => {
           <View key={post.id} style={styles.post}>
             <Text style={styles.postTitle}>{post.username}</Text>
             <Image source={{ uri: post.image }} style={styles.postImage} />
-            <Text style={styles.caption}>{post.caption}</Text>
 
-            {/* Post Action Icons */}
-            <View style={styles.iconsContainer}>
-              <Image
-                source={require("../../assets/images/home.png")}
-                style={styles.icons1}
-              />
-              <Image
-                source={require("../../assets/images/comment.png")}
-                style={styles.icons1}
-              />
-              <Image
-                source={require("../../assets/images/paper-plane.png")}
-                style={styles.icons1}
-              />
-              <Image
-                source={require("../../assets/images/bookmark.png")}
-                style={styles.icons1}
-              />
-            </View>
-
-            {/* Post Likes and Comments */}
-            <View>
-              <Text>
-                Liked by{" "}
-                <Text style={{ fontWeight: "bold" }}>paisley.print48</Text> and{" "}
-                <Text style={{ fontWeight: "bold" }}>7 others</Text>
+            {/* Post Subtext */}
+            <View style={styles.postText}>
+              {/* Post Action Icons */}
+              <View style={styles.iconsContainer}>
+                <Image
+                  source={require("../../assets/images/home.png")}
+                  style={styles.icons1}
+                />
+                <Image
+                  source={require("../../assets/images/comment.png")}
+                  style={styles.icons1}
+                />
+                <Image
+                  source={require("../../assets/images/paper-plane.png")}
+                  style={styles.icons1}
+                />
+                <Image
+                  source={require("../../assets/images/bookmark.png")}
+                  style={[styles.icons1, {marginLeft: 230}]}
+                />
+              </View>
+              <Text style={{ marginBottom: 4}}>
+                <Text style={styles.boldText}>{post.username} </Text>
+                <Text style={styles.caption}>{post.caption}</Text>
               </Text>
+              {/* Post Likes and Comments */}
+              <View>
+                <Text>
+                  Liked by{" "}
+                  <Text style={styles.boldText}>paisley.print48</Text>{" "}
+                  and <Text style={styles.boldText}>7 others</Text>
+                </Text>
 
-              <Text>
-                <Text style={{ fontWeight: "bold" }}>french_fries</Text> Fresh
-                shot on a sunny day
-              </Text>
+                <Text>
+                  <Text style={styles.boldText}>french_fries</Text> Fresh
+                  shot on a sunny day
+                </Text>
 
-              <Text style={{ color: "#E7EAE5" }}>View all 15 comments</Text>
+                <Text style={{ color: "#E7EAE5" }}>View all 15 comments</Text>
 
-              <Text>
-                <Text style={{ fontWeight: "bold" }}>lilwat.838</Text> Awesome
-                looks
-              </Text>
+                <Text>
+                  <Text style={styles.boldText}>lilwat.838</Text> Awesome
+                  looks
+                </Text>
 
-              <Text>
-                <Text style={{ fontWeight: "bold" }}>pia.in.a.pott</Text> Gorg.
-                Looks
-              </Text>
+                <Text>
+                  <Text style={styles.boldText}>pia.in.a.pott</Text>{" "}
+                  Gorg. Looks
+                </Text>
 
-              <Text>
-                <Text style={{ fontWeight: "bold" }}>xo.xo.xm</Text> Wonderful
-              </Text>
+                <Text>
+                  <Text style={styles.boldText}>xo.xo.xm</Text> Wonderful
+                </Text>
+              </View>
             </View>
           </View>
         ))}
@@ -231,7 +236,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   post: {
-    marginBottom: 20,
+    marginBottom: 10,
     borderBottomWidth: 0.5,
     borderColor: "#ddd",
     width: "100%",
@@ -263,7 +268,7 @@ const styles = StyleSheet.create({
   },
   iconsContainer: {
     flexDirection: "row",
-    padding: 10,
+    marginLeft: 5,
   },
   icons1: {
     height: 30,
@@ -271,6 +276,10 @@ const styles = StyleSheet.create({
     margin: 10,
     right: 20,
   },
+  boldText: {
+    fontWeight: "bold",
+  },
+
 });
 
 export default App;
