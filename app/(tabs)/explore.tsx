@@ -28,9 +28,6 @@ const ExploreScreen = () => {
   const router = useRouter();
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <BackButton onPress={() => router.back()} />
-      </View>
       {/* Search Bar */}
       <View style={styles.searchBar}>
         <View style={styles.circle}></View>
@@ -40,9 +37,6 @@ const ExploreScreen = () => {
           placeholderTextColor="#b3b3b3"
         />
       </View>
-
-      {/* Explore Title and Navigation Buttons */}
-      <Text style={styles.title}>Explore Screen</Text>
 
       {/* Scrollable Grid of Images */}
       <ScrollView>
@@ -85,11 +79,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#e3e7e8",
+    width: "95%",
     padding: 2,
     borderRadius: 45,
     marginTop: 65,
-    marginLeft: 50,
-    marginRight: 20,
+    marginHorizontal: 10,
     marginBottom: 10,
   },
   circle: {
@@ -105,7 +99,6 @@ const styles = StyleSheet.create({
     flex: 1,
     color: "black",
     fontSize: 16,
-    marginHorizontal: 40,
   },
   title: {
     fontSize: 24,

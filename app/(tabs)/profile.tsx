@@ -7,8 +7,11 @@ import {
   Dimensions,
   Image,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+
 import BackButton from "@/components/BackButton";
 
 const ProfilePage = () => {
@@ -80,21 +83,37 @@ const ProfilePage = () => {
   return (
     <View style={styles.container}>
       <ScrollView>
+        {/* Header  */}
         <View style={styles.header}>
           <BackButton onPress={() => router.back()} />
           <View style={styles.headerText}>
             <Text style={styles.title}>Group Profile</Text>
-            <Text>ootd_everyday</Text>
+            <Text style={{ color: "gray" }}>ootd_everyday</Text>
           </View>
+          <FontAwesome
+            name="plus-square-o"
+            size={24}
+            color="black"
+            style={{ marginRight: 4 }}
+          />
         </View>
 
+        {/* Profile Header */}
         <View style={styles.profileHeader}>
-          <View style={styles.profilePhotoWhole}>
-            <Image
-              source={{ uri: "https://picsum.photos/200" }}
-              style={styles.profilePhoto}
-            />
+          {/* Profile Photo */}
+          <View style={styles.profilePhotoContainer}>
+            <LinearGradient
+              colors={["#fdf497", "#fd5949", "#d6249f", "#285AEB"]}
+              style={styles.profilePhotoBG}
+            >
+              <Image
+                source={{ uri: "https://picsum.photos/200" }}
+                style={styles.profilePhoto}
+              />
+            </LinearGradient>
           </View>
+
+          {/* Profile Metrics */}
           <View style={styles.profileMetrics}>
             <View style={styles.metricText}>
               <Text style={styles.metricTitle}>53</Text>
@@ -111,6 +130,7 @@ const ProfilePage = () => {
           </View>
         </View>
 
+        {/* Profile Body */}
         <View style={styles.profileBody}>
           <Text style={styles.descriptionTitle}>OOTD Everyday</Text>
           <Text>Fit Check!</Text>
@@ -124,6 +144,7 @@ const ProfilePage = () => {
           />
         </View>
 
+        {/* Posts Gallery */}
         <View style={styles.gallery}>
           {posts.map((post) => (
             <Image
@@ -184,14 +205,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    marginTop: 100,
+    marginTop: 110,
   },
-  profilePhotoWhole: {
+  profilePhotoContainer: {
     marginLeft: 10,
   },
+  profilePhotoBG: {
+    width: 91,
+    height: 91,
+    borderRadius: 80,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   profilePhoto: {
-    width: 100,
-    height: 100,
+    width: 85,
+    height: 85,
     borderRadius: 50,
     borderColor: "#fff",
     borderWidth: 2,
@@ -217,7 +245,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     width: "100%",
     paddingHorizontal: 10,
-    marginVertical: 5,
+    marginTop: 15,
   },
   descriptionTitle: {
     fontWeight: "bold",
@@ -229,7 +257,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 2,
     borderRadius: 3,
-    borderColor: "black",
+    borderColor: "gray",
     paddingVertical: 1,
     paddingHorizontal: 30,
     marginHorizontal: "auto",
