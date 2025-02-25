@@ -43,22 +43,22 @@ const App = () => {
   const stories = [
     {
       id: 1,
-      image: "https://placekitten.com/200/200",
+      image: "https://picsum.photos/200",
       username: "User1",
     },
     {
       id: 2,
-      image: "https://placekitten.com/201/200",
+      image: "https://picsum.photos/200",
       username: "User2",
     },
     {
       id: 3,
-      image: "https://placekitten.com/202/200",
+      image: "https://picsum.photos/200",
       username: "User3",
     },
     {
       id: 4,
-      image: "https://placekitten.com/203/200",
+      image: "https://picsum.photos/200",
       username: "User4",
     },
   ];
